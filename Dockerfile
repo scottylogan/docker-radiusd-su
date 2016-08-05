@@ -3,7 +3,7 @@ MAINTAINER Scotty Logan <swl@stanford.edu>
 
 USER root
 
-RUN yum -y install openssl-perl pyOpenSSL python-pyasn1 python-pyasn1-modules
+RUN yum -y install openssl-perl pyOpenSSL python-pyasn1 python-pyasn1-modules python-requests
 
 USER radiusd
 
