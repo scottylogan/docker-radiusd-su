@@ -6,10 +6,13 @@ After=docker.service
 [Service]
 ExecStartPre=-/usr/bin/docker rm radiusd.service
 ExecStart=/usr/bin/docker run --rm \
-  --name radiusd.service -h radius \
+  --name radiusd.service -h radius.itlab.stanford.edu \
   -v /dev/log:/dev/log \
-  -v /srv/radiusd/freeradius:/etc/freeradius \
-  -v /srv/radiusd/raddb:/etc/raddb \
+  -v /srv/radiusd/freeradius:/etc/freeradius:ro \
+  -v /srv/radiusd/raddb:/etc/raddb:ro \
+  -v /var/log/radius:/var/log/radius \
+  -e KRB5_KTNAME=/etc/raddb/radius.keytab \
+  -e KRB5_CLIENT_KTNAME=/etc/raddb/radius.keytab \
   -p 1812-1813:1812-1813/udp -p 1812-1813:1812-1813 \
   scottylogan/rpi-radiusd-su /usr/sbin/radiusd -f
 ExecStop=/usr/bin/docker stop radiusd.service
