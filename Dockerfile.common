@@ -4,7 +4,6 @@ USER root
 
 RUN yum -y install openssl-perl pyOpenSSL python-pyasn1 python-pyasn1-modules python-requests freeradius-python
 RUN yum -y install freeradius-mysql freeradius-krb5 freeradius-ldap cyrus-sasl-gssapi
-RUN rm -rf /etc/raddb && mkdir -p /etc/raddb && chown -R root:radiusd /etc/raddb
 COPY krb5.conf /etc/krb5.conf
 COPY ldap.conf /etc/openldap/ldap.conf
 
