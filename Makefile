@@ -12,10 +12,10 @@ armv7l: Dockerfile.rpi
 	docker build -t ${NAMESPACE}/rpi-${IMAGE}:latest -f Dockerfile.rpi .
 
 Dockerfile.x86_64: Dockerfile.common
-	echo "FROM ${NAMESPACE}/${BASE_IMAGE}' >$@
+	echo "FROM ${NAMESPACE}/${BASE_IMAGE}" >$@
 	cat $< >>$@
 
 Dockerfile.rpi: Dockerfile.common
-	echo 'FROM ${NAMESPACE}/rpi-${BASE_IMAGE}' >$@
+	echo "FROM ${NAMESPACE}/rpi-${BASE_IMAGE}" >$@
 	cat $< >>$@
 
