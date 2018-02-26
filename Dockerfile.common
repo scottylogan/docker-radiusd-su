@@ -1,5 +1,4 @@
-FROM scottylogan/rpi-radiusd
-MAINTAINER Scotty Logan <swl@stanford.edu>
+LABEL maintainer "Scotty Logan <swl@stanford.edu>"
 
 USER root
 
